@@ -1,2 +1,10 @@
-# waypoint_generator
-Waypoint generator for ROS. Originally developed by: 
+# Waypoints
+
+### Functions:
+1. Waypoint generator for ROS with RViz interface
+2. Waypoint publisher
+3. Waypoint launcher
+
+
+https://user-images.githubusercontent.com/90048225/133481640-d8d7f007-2685-453f-a889-6ad5905eb71f.mp4
+
