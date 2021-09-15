@@ -1,0 +1,38 @@
+<!-- Copyed from teb_local_planner
+  Simulate a ATV with the teb_local_planner in stage:
+  - map_server
+  - static map
+  - waypoints
+  - rviz view
+ -->
+<launch>
+
+        <!--  ************** Global Parameters ***************  -->
+        <param name="/use_sim_time" value="false"/>
+
+
+       	<!--  ****** Maps *****  -->
+	<node name="map_server" pkg="map_server" type="map_server" args="$(find waypoints)/maps/robotlab.yaml" output="screen">
+                <param name="frame_id" value="map"/>
+	</node>
+
+
+         <!--  *************** Waypoints ***************  -->
+        <node pkg="waypoints" name="waypoint_publisher" type="generator_pub_waypoints.py" output="screen"> 
+	</node>
+
+          
+          <!--  *************** Goal Listener ***************  -->
+        <node pkg="waypoints" name="goal_listener" type="goal_listener.py" output="screen"> 
+	</node>
+
+
+         <!--  **************** Visualisation ****************  -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find waypoints)/cfg/rviz_navigation.rviz">
+        </node>
+
+         <!--  *************** Text editor ***************  -->
+        <node pkg="waypoints" name="text_editor" type="open_gedit.py" output="screen"> 
+	</node>
+
+</launch>
