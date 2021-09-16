@@ -3,8 +3,6 @@
 # Origin: https://github.com/cristian-frincu/navifgation_waypoints_scripts
 # Edited: HK
 
-
-#FILE = '/home/hk/catkin_ws/src/waypoints/waypoints/waypoints.csv'
 import os
 import rospy
 import actionlib
