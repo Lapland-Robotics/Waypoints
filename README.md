@@ -77,17 +77,6 @@ $ cd ~/catkin_ws
 $ catkin_make
 ```
 
-### Troubleshooter:
-If some:
-```
-ERROR: cannot launch node of type [map_server/map_server]: map_server
-```
-than:
-```
-sudo apt-get install ros-melodic-map-server
-```
-NOTE! MISSING "map_server", BUT INSTALLATION PACKAGE IS "map-server"
-
 # Waypoint publisher and navigation
 ### Waypoint publisher
 **Install script**
@@ -129,3 +118,14 @@ $ rosrun <YOUR ROBOT PACKAGE> waypoint_navigation.py
 ## Tip for remote use
 
 https://github.com/Lapland-Robotics/miniATV/tree/main/atv_remote#this-is-for-remote-control-and-monitoring-miniatv-robot
+
+## Troubleshooter:
+If some:
+```
+ERROR: cannot launch node of type [map_server/map_server]: map_server
+```
+than:
+```
+sudo apt-get install ros-melodic-map-server
+```
+NOTE! MISSING "map_server", BUT INSTALLATION PACKAGE IS "map-server"
