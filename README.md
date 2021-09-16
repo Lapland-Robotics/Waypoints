@@ -2,14 +2,15 @@
 
 ### Functions:
 1. Waypoint generator for ROS with RViz interface
-2. Waypoint publisher
-3. Waypoint launcher
+2. Waypoint publisher for publish the waypoints in ROS (robot)
+3. Waypoint navigation for publishing 2D navigation goals from waypoints in ROS (robot)
 
 
 Yes, video is speeded up....
 
 https://user-images.githubusercontent.com/90048225/133481640-d8d7f007-2685-453f-a889-6ad5905eb71f.mp4
 
+## Waypoint Generator
 ### ROS Installation (Copy from ros.org)
 [http://wiki.ros.org/melodic/Installation/Ubuntu](http://wiki.ros.org/melodic/Installation/Ubuntu)
 
@@ -41,6 +42,16 @@ Source bash...
 ```
 $ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 ```
+To install dependencies for building ROS packages, run:
+```
+$ sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+```
+Initialize rosdep:
+```
+$ sudo apt install python-rosdep
+$ sudo rosdep init
+$ rosdep update
+```
 
 ### Make ROS workspace
 ```
@@ -65,7 +76,7 @@ $ cd ~/catkin_ws
 $ catkin_make
 ```
 
-## Troubleshooter:
+### Troubleshooter:
 If some:
 ```
 ERROR: cannot launch node of type [map_server/map_server]: map_server
@@ -75,3 +86,41 @@ than:
 sudo apt-get install ros-melodic-map-server
 ```
 NOTE! MISSING "map_server", BUT INSTALLATION PACKAGE IS "map-server"
+
+# Waypoint publisher and navigation
+### Waypoint publisher
+**Install script**
+1. Copy pub_waypoints.py from waypoints/scripts folder to your robot's scripts folder (Remember check that script file is executable (chmod +x pub_waypoints.py))
+2. Copy generated waypoints (Use Waypoint generator) waypoints.csv to your robot's waypoints folder
+4. Add to your robot's launch file:
+```
+ <!--  *************** Waypoints ***************  -->
+ <node pkg="YOUR ROBOT PACKAGES" name="waypoint_publisher" type="pub_waypoints.py" output="screen"></node>
+```
+4. Execute "catkin_make" in robot's workspace (catkin_ws)
+
+**Launch your robot**
+
+**If you want to see waypoints in RViz:**
+   - In the RViz click "Add" (under "Displays" tree)
+   - Select "By topic" tab
+   - Select on the list "MarkerArray" waypoints
+   - Click OK
+   - Check that the "MarkerArray" is activated on "Display" tree
+   - You can save RViz setting now (menu: "File" - "Save")
+
+### Waypoint navigation
+**Note! Waypoint publisher need to be installed**
+**Install script**
+1. Copy waypoint_navigation.py from waypoints/scripts folder to your robot's scripts folder (Remember check that script file is executable (chmod +x waypoint_navigation.py))
+2. Copy generated waypoints (Use Waypoint generator) waypoints.csv to your robot's waypoints folder
+3. Execute "catkin_make" in robot's workspace (catkin_ws)
+
+**Launch your robot**
+
+**Launch waypoint navigation**
+```
+$ rosrun <YOUR ROBOT PACKAGE> waypoint_navigation.py
+```
+
+** TIP ;)**
