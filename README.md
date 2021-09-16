@@ -42,7 +42,8 @@ Source bash...
 ```
 $ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 ```
-To install dependencies for building ROS packages, run:
+
+### Install dependencies for building ROS packages, run:
 ```
 $ sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 ```
@@ -64,7 +65,7 @@ Source bash...
 $ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
-## waypoints ros package:
+## Create waypoints ros package:
 
 ```
 $ cd catkin_ws/src
