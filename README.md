@@ -111,6 +111,7 @@ NOTE! MISSING "map_server", BUT INSTALLATION PACKAGE IS "map-server"
 
 ### Waypoint navigation
 **Note! Waypoint publisher need to be installed**
+
 **Install script**
 1. Copy waypoint_navigation.py from waypoints/scripts folder to your robot's scripts folder (Remember check that script file is executable (chmod +x waypoint_navigation.py))
 2. Copy generated waypoints (Use Waypoint generator) waypoints.csv to your robot's waypoints folder
@@ -123,4 +124,7 @@ NOTE! MISSING "map_server", BUT INSTALLATION PACKAGE IS "map-server"
 $ rosrun <YOUR ROBOT PACKAGE> waypoint_navigation.py
 ```
 
-** TIP ;)**
+
+## Tip for remote use
+
+https://github.com/Lapland-Robotics/miniATV/tree/main/atv_remote#this-is-for-remote-control-and-monitoring-miniatv-robot
