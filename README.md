@@ -77,6 +77,28 @@ $ cd ~/catkin_ws
 $ catkin_make
 ```
 
+# Waypoint generation
+### Launch Waypoint generator
+```
+$ roslaunch waypoints waypoints_generator.launch
+```
+Or you can (because you can) make *.desktop icon and launch it that way ;) .
+
+Two windows will be open:
+1. Rviz -window: where you can add/generate waypoints
+2. Text-editor: where you can delete/edit your waypoint (yes i know this is crappy way :( )
+
+### How to use
+In the Rviz select tool "2D navigation Goal" (purple arrow) and select yours waypoint locations and direcions on map. Waypoint Generator will draw those waypoints to the map.
+Easiest way to delete waypoint is delete it directly from the waypoints.csv file with the text editor.
+
+### Where generated waypoints.csv file is?
+```
+$ cd ~catkin_ws/waypoints/waypoints
+```
+There will be waypoints.csv.
+You can copy this file to your robots file location and you can use "waypoint publisher" (pub_waypoints.py) and "waypoint navigation" (waypoint_navigation.py) (follow this help) ==> ==>
+
 # Waypoint publisher and navigation
 ### Waypoint publisher
 **Install script**
