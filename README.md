@@ -5,6 +5,9 @@
 2. Waypoint publisher for publish the waypoints in ROS (robot)
 3. Waypoint navigation for publishing 2D navigation goals from waypoints in ROS (robot)
 
+### TODO:
+- add comments to script files
+- add descriptions of script files to the README.md
 
 Yes, video is speeded up....
 
@@ -97,7 +100,7 @@ Easiest way to delete waypoint is delete it directly from the waypoints.csv file
 $ cd ~catkin_ws/waypoints/waypoints
 ```
 There will be waypoints.csv.
-You can copy this file to your robots file location and you can use "waypoint publisher" (pub_waypoints.py) and "waypoint navigation" (waypoint_navigation.py) (follow this help) ==> ==>
+You can copy this file to your robots file location and you can use "waypoint publisher" (pub_waypoints.py) and "waypoint navigation" (waypoint_navigation.py) (follow this README) ==> ==>
 
 # Waypoint publisher and navigation
 ### Waypoint publisher
