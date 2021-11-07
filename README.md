@@ -5,9 +5,6 @@
 2. Waypoint publisher for publish the waypoints in ROS (robot)
 3. Waypoint navigation for publishing 2D navigation goals from waypoints in ROS (robot)
 
-### TODO:
-- add comments to script files
-
 Yes, video is speeded up....
 
 https://user-images.githubusercontent.com/90048225/133481640-d8d7f007-2685-453f-a889-6ad5905eb71f.mp4
@@ -94,6 +91,9 @@ Two windows will be open:
 In the Rviz select tool "2D navigation Goal" (purple arrow) and select yours waypoint locations and direcions on map. Waypoint Generator will draw those waypoints to the map.
 Easiest way to delete waypoint is delete it directly from the waypoints.csv file with the text editor.
 
+![Waypoint](https://user-images.githubusercontent.com/90048225/140636933-bb9b348f-ca5d-4d4a-9f73-559b19f8feeb.png)
+
+
 ### Where generated waypoints.csv file is?
 ```
 $ cd ~catkin_ws/waypoints/waypoints
@@ -137,10 +137,6 @@ You can copy this file to your robots file location and you can use "waypoint pu
 ```
 $ rosrun <YOUR ROBOT PACKAGE> waypoint_navigation.py
 ```
-
-**Remote run with bash script**
-
-
 
 ## Tip for remote use
 
