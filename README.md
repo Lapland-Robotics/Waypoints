@@ -128,7 +128,7 @@ You can copy this file to your robots file location and you can use "waypoint pu
 
 **Install script**
 1. Copy waypoint_navigation.py from waypoints/scripts folder to your robot's scripts folder (Remember check that script file is executable (chmod +x waypoint_navigation.py))
-2. Copy generated waypoints (Use Waypoint generator) waypoints.csv to your robot's waypoints folder
+2. Copy generated waypoints (generated with "Waypoint generator") waypoints.csv to your robot's waypoints folder
 3. Execute "catkin_make" in robot's workspace (catkin_ws)
 
 **Launch your robot**
@@ -137,6 +137,9 @@ You can copy this file to your robots file location and you can use "waypoint pu
 ```
 $ rosrun <YOUR ROBOT PACKAGE> waypoint_navigation.py
 ```
+
+**Remote run with bash script**
+
 
 
 ## Tip for remote use
