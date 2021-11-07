@@ -17,6 +17,8 @@
 
 ## Scripts for robot (use these in your robot):
 
+**Note! Check FILE paths in the script files and change right path for your robot**
+
 ### pub_waypoints.py:
 **Script for publish waypoints. Waypoints in file waypoints.csv in folder atv_setup/waypoints.**
 
