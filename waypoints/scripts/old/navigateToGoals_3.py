@@ -1,11 +1,5 @@
 #!/usr/bin/env python
-# Script for launch/start navigation via waypoint. Waypoints need to be publish first with pub_waypoints.py.
-# Origin: https://github.com/cristian-frincu/navifgation_waypoints_scripts
-# Edited: HK
-
-
-#FILE = '/home/hk/catkin_ws/src/waypoints/waypoints/waypoints.csv'
-import os
+FILE = '/home/hk/catkin_ws/src/waypoints/scripts/waypoints.csv'
 import rospy
 import actionlib
 
@@ -13,10 +7,7 @@ import actionlib
 from move_base_msgs.msg import *
 from geometry_msgs.msg import *
 
-# CHECK THIS file PATH: path to < YOUR PACKAGE >/waypoints
-FILE = os.path.expanduser("~") + '/catkin_ws/src/waypoints/waypoints/waypoints.csv'
-
-def simple_move(x,y,z,w):
+def simple_move(x,y,w,z):
 
 
     sac = actionlib.SimpleActionClient('move_base', MoveBaseAction )
@@ -25,8 +16,8 @@ def simple_move(x,y,z,w):
     goal = MoveBaseGoal()
     goal.target_pose.pose.position.x = x
     goal.target_pose.pose.position.y = y
-    goal.target_pose.pose.orientation.z = z
     goal.target_pose.pose.orientation.w = w
+    goal.target_pose.pose.orientation.z = z
     goal.target_pose.header.frame_id = 'map'
     goal.target_pose.header.stamp = rospy.Time.now()
 
@@ -34,7 +25,7 @@ def simple_move(x,y,z,w):
     sac.wait_for_server()
     #send goal
     sac.send_goal(goal)
-    print "Sending goal:",x,y,z,w
+    print "Sending goal:",x,y,w,z
     #finish
     sac.wait_for_result()
     #print result
@@ -52,13 +43,14 @@ def talker(coordinates):
         pose = Pose()
         pose.position.x = float(coordinates[0])
         pose.position.y = float(coordinates[1])
-        pose.orientation.z = float(coordinates[2])
-        pose.orientation.w = float(coordinates[3])
+        pose.orientation.w = float(coordinates[2])
+        pose.orientation.z = float(coordinates[3])
         array.poses.append(pose)
 
         pub = rospy.Publisher('simpleNavPoses', PoseArray, queue_size=100)
         rate = rospy.Rate(1) # 1hz
 
+        #To not have to deal with threading, Im gonna publish just a couple times in the begging, and then continue with telling the robot to go to the points
     count = 0
     while count<1:
 		rate.sleep()	
@@ -70,7 +62,7 @@ if __name__ == '__main__':
     try:
         rospy.init_node('simple_move')
 
-        #sending commands for the robot to travel
+        #actually sending commands for the robot to travel
         f = open(FILE,'r')
         for goal in f:
 			coordinates = goal.split(",")

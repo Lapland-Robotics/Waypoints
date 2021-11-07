@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# Script listening "/move_base_simple/goal" (user give new 2d Goal) and add coordinates of goal to waypoints.csv file (in folder /waypoints.
 
 import os
 import rospy

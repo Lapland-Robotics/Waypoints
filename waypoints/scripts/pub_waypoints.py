@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# Script for publish waypoints. Waypoints in file waypoints.csv in folder < YOUR PACKAGE >/waypoints.
 #idea from: Thanks Oscar Lima from https://answers.ros.org/question/203782/rviz-marker-line_strip-is-not-displayed/
 #Edited HK 
 
@@ -13,6 +13,7 @@ rospy.init_node('waypoint_publisher')
 pub_waypoints_lines = rospy.Publisher('~waypoints_pub', MarkerArray, queue_size=1)
 rospy.loginfo('Publishing Waypoints')
 
+# CHECK THIS file PATH: path to < YOUR PACKAGE >/waypoints
 FILE = os.path.expanduser("~") + '/catkin_ws/src/waypoints/waypoints/waypoints.csv'
 
 coordinateCount = 0
