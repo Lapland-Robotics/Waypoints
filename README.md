@@ -7,7 +7,6 @@
 
 ### TODO:
 - add comments to script files
-- add descriptions of script files to the README.md
 
 Yes, video is speeded up....
 
